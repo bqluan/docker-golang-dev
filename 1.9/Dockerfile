@@ -38,7 +38,7 @@ RUN git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go \
 	&& GOBIN=/usr/local/bin vim "+set nomore" +GoInstallBinaries +qall \
 	&& rm -rf "$GOPATH"
 
-# Install govendor
+# Install dep (the dependency management tool)
 RUN export GOPATH="$(mktemp -d)" \
-	&& GOBIN=/usr/local/bin go get github.com/kardianos/govendor \
+	&& GOBIN=/usr/local/bin go get github.com/golang/dep/cmd/dep \
 	&& rm -rf "$GOPATH"
